@@ -31,11 +31,11 @@ int main(){
 				else if(p[min].at==p[i].at && p[min].pt > p[i].pt || p[min].status)
 					min=i;
 			}
-		(p[i].at > curr_t)
-    		? (p[i].ct = p[i].at + p[i].bt, curr_t = p[i].at + p[i].bt)
-    		: (p[i].ct = curr_t + p[i].bt,  curr_t += p[i].bt);
-		p[i].tt = p[i].ct-p[i].at;
-		p[i].wt = p[i].tt-p[i].bt;
+		(p[min].at > curr_t)
+    		? (p[min].ct = p[min].at + p[min].bt, curr_t = p[min].at + p[min].bt)
+    		: (p[min].ct = curr_t + p[min].bt,  curr_t += p[min].bt);
+		p[min].tt = p[min].ct-p[min].at;
+		p[min].wt = p[min].tt-p[min].bt;
 		p[min].status = 1;
 		no_itr++;
 	}
