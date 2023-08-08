@@ -2,7 +2,7 @@
 
 struct process{
 	char name[5];
-	int at, bt, tt, ct, st, wt, pt, status;
+	int at, bt, tt, ct, wt, pt, status;
 }p[10], temp;
 
 int main(){
@@ -24,11 +24,11 @@ int main(){
 		min=0;
 		for(i=0; i<limit; i++)
 			if(!p[i].status){
-				if(curr_t>=p[i].at && curr_t>=p[min].at && p[min].pt > p[i].pt)
+				if(curr_t>=p[i].at && curr_t>=p[min].at && p[min].pt < p[i].pt)
 					min=i;
-				else if(p[min].at > p[i].at)
+				else if(p[min].at > p[i].at && curr_t<=p[i].at && curr_t<=p[min].at)
 					min=i;
-				else if(p[min].at==p[i].at && p[min].pt > p[i].pt || p[min].status)
+				else if(p[min].at==p[i].at && p[min].pt < p[i].pt || p[min].status)
 					min=i;
 			}
 		(p[min].at > curr_t)
